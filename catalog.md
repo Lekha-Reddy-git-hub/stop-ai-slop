@@ -72,6 +72,18 @@ of, breathtaking, must-visit, renowned, stunning, groundbreaking, commitment to.
 underscore, showcase, enduring, vibrant, pivotal, foster, align with, leverage,
 robust, seamless, elevate.
 
+**Adverbs (tiered, not a blanket kill).** The current stop-slop says "kill ALL
+adverbs." deslop does not, because that over-corrects into stilted telegraphic
+prose, which is its own tell. Instead:
+- Always cut the empty intensifiers that add no information: really, very, just,
+  literally, actually, genuinely, honestly, simply, basically, truly, deeply,
+  incredibly, extremely, "-ly" hedges like "arguably" and "essentially".
+- Replace an adverb propping up a weak verb with a stronger verb: "ran quickly"
+  becomes "sprinted"; "said angrily" becomes "snapped"; "very big" becomes "huge".
+- KEEP adverbs that carry real meaning: legally, remotely, quarterly, clinically,
+  publicly, privately, and any -ly word that changes what the sentence claims.
+  "She is legally liable" cannot lose "legally".
+
 **Vague attribution and weasel words.** "Experts believe," "Industry reports,"
 "Observers have noted," "Some critics argue," "studies show" with no named source.
 Name the source or cut the claim.
