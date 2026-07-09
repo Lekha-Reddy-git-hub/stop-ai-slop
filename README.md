@@ -19,7 +19,9 @@ new model ships. stop-ai-slop is built to keep up: an auto-discovery miner finds
 new tells as they emerge, community submissions feed it patterns, and a
 measurement loop catches regressions. See [SELF-IMPROVING.md](SELF-IMPROVING.md).
 
-Based on [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya (MIT).
+Based on [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya (MIT),
+and folds in patterns from Wikipedia's "Signs of AI writing" (WikiProject AI Cleanup),
+via the [humanizer](https://github.com/blader/humanizer) skill (MIT).
 
 ## Why per-channel matters
 
@@ -68,6 +70,13 @@ actually send:
   hedging stacks, "In conclusion", audience-hailing.
 - **Channel tells** (`channels.md`): per-platform slop for X, LinkedIn, cold and
   warm email, and long-form.
+- **The fuller catalog** (`catalog.md`): false agency, narrator-from-a-distance,
+  passive voice, copula avoidance, negative listing, superficial -ing, vague
+  declaratives, aphorism formulas, Wh- openers, and the significance, promotional,
+  and vague-attribution vocabulary.
+- **What NOT to flag** (`false-positives.md`): the guardrail that keeps this from
+  becoming a second slop. Clusters over isolated tells, and the signs of real human
+  writing to protect.
 
 ## What changed from stop-slop
 

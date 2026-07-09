@@ -25,7 +25,18 @@ Based on stop-slop by Hardik Pandya (MIT). See README for what changed.
 3. **Check.** Re-run `slop_score.py`. Confirm the score improved AND that you did
    not overcorrect into the opposite slop (see "Do not overcorrect" below).
 
-## The tiers (see phrases.md, structures.md, formatting.md, sycophancy.md, channels.md)
+## Before you cut
+
+Read false-positives.md first. A clean human writer hits many of these patterns
+without any AI involvement. Look for CLUSTERS of tells, not isolated ones, and
+protect the signs of real human writing. Removing the machine is the job; sanding
+every writer into the same neutral paste is the failure.
+
+## The tiers (see phrases.md, structures.md, formatting.md, sycophancy.md, channels.md, catalog.md)
+
+catalog.md is the fuller pattern list (false agency, narrator-from-a-distance,
+passive voice, copula avoidance, negative listing, superficial -ing, vague
+declaratives, Wh- openers, and more), tiered the same way.
 
 - **Always cut:** vocabulary tells and dead phrases that carry no meaning.
 - **Cut unless context justifies it:** phrases that are sometimes correct. Keep
