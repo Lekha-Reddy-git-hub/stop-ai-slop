@@ -1,9 +1,9 @@
 ---
-name: deslop
-description: Remove AI tells from prose without flattening it into beige. A tiered, context-aware slop remover that detects machine patterns, rewrites them, and preserves meaning and the author's voice. Use when the user wants to clean AI-generated or AI-assisted text, asks "make this sound less like AI", or wants an objective slop score.
+name: stop-ai-slop
+description: Remove AI tells from prose without flattening it into beige, tuned per channel (X, LinkedIn, cold email, warm email, articles). A tiered, context-aware slop remover that detects machine patterns, rewrites them, and preserves meaning and the author's voice. Use when the user wants to clean AI-generated or AI-assisted text, make an X post / LinkedIn post / cold or warm email / article sound human, asks "make this sound less like AI", or wants an objective slop score.
 ---
 
-# deslop
+# stop-ai-slop
 
 AI writing has patterns: predictable phrases, structures, rhythms, and formatting.
 This skill removes them. It does NOT replace them with a second slop (clipped,
@@ -17,13 +17,15 @@ Based on stop-slop by Hardik Pandya (MIT). See README for what changed.
 1. **Detect.** Read the whole text. Run `slop_score.py` for objective counts
    (banned phrases, em-dash density, bullet-to-prose ratio, sentence-length
    variance). Note what actually fires; do not guess.
-2. **Rewrite.** Fix only what the detectors flag. Preserve meaning, facts,
-   quotes, and technical terms exactly. Preserve the author's voice if one is
-   given (pair with a voice profile if available).
+2. **Rewrite.** Fix only what the detectors flag. If the user names a channel
+   (X, LinkedIn, cold email, warm email, article), apply that section of
+   `channels.md`. Preserve meaning, facts, quotes, and technical terms exactly.
+   Preserve the author's voice if one is given (pair with a voice profile if
+   available).
 3. **Check.** Re-run `slop_score.py`. Confirm the score improved AND that you did
    not overcorrect into the opposite slop (see "Do not overcorrect" below).
 
-## The tiers (see phrases.md, structures.md, formatting.md, sycophancy.md)
+## The tiers (see phrases.md, structures.md, formatting.md, sycophancy.md, channels.md)
 
 - **Always cut:** vocabulary tells and dead phrases that carry no meaning.
 - **Cut unless context justifies it:** phrases that are sometimes correct. Keep
