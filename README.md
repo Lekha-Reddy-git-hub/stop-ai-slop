@@ -60,13 +60,21 @@ that sneaks past an AI checker.
 
 ## Install
 
+**Easiest, no setup. Works in Claude or ChatGPT.**
+Open [`SKILL.md`](SKILL.md), copy all of it, paste it into a new chat, then paste
+your draft and say "apply this skill, keep my meaning and my voice." That is it.
+
+**Claude Code (auto-loads whenever it is relevant).** One line, copy and paste:
+
 ```bash
-# Claude Code
-cp -r stop-ai-slop ~/.claude/skills/stop-ai-slop
+git clone https://github.com/Lekha-Reddy-git-hub/stop-ai-slop ~/.claude/skills/stop-ai-slop
 ```
 
-- **Claude.ai Projects:** upload `SKILL.md` plus the reference files
-- **Cursor / Codex / anything else:** paste `SKILL.md` into your system prompt
+**Claude Projects or a Custom GPT (always on).**
+Upload `SKILL.md` plus the reference files to the project knowledge, or into the
+GPT's instructions.
+
+**Cursor or Codex.** Paste `SKILL.md` into your rules file or system prompt.
 
 ## Examples
 
