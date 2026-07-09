@@ -1,118 +1,119 @@
-# stop-ai-slop
+<p align="center">
+  <img src="banner.png" alt="stop-ai-slop - remove AI tells from prose without flattening it into beige" width="100%" />
+</p>
 
-**Make anything you write sound human again: X posts, LinkedIn posts, cold and
-warm emails, and articles. Without collapsing into the short-punchy style that
-just trades one kind of slop for another.**
+<h1 align="center">stop-ai-slop</h1>
 
-AI writing has patterns: predictable phrases, structures, rhythms, and
-formatting. This skill removes them. What makes it different from a plain
-banlist: it will not trade one slop for another. Strip AI text with a naive
-remover and you get clipped, punchy, LinkedIn-broetry copy, which is its own
-tell. stop-ai-slop is tiered, context-aware, channel-aware, and it measures
-instead of guessing.
+<p align="center"><em>Remove AI tells from prose without flattening it into beige.</em></p>
 
-Not a detector-bypass tool. The goal is writing that is actually better, not
-writing that sneaks past an AI checker. See "Scope and honesty" below.
+<p align="center">
+  <a href="https://github.com/Lekha-Reddy-git-hub/stop-ai-slop/stargazers"><img src="https://img.shields.io/github/stars/Lekha-Reddy-git-hub/stop-ai-slop?style=for-the-badge&logo=github&labelColor=0f172a&color=fbbf24" alt="Stars" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-10a37f?style=for-the-badge&labelColor=0f172a" alt="MIT License" /></a>
+  <img src="https://img.shields.io/badge/Works%20with-Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex-111827?style=for-the-badge&labelColor=0f172a" alt="Supported agents" />
+  <img src="https://img.shields.io/badge/v1.3-self--improving-10a37f?style=for-the-badge&labelColor=0f172a" alt="Self-improving" />
+</p>
 
-**It stays current.** Most slop removers are a static list that ages the moment a
-new model ships. stop-ai-slop is built to keep up: an auto-discovery miner finds
-new tells as they emerge, community submissions feed it patterns, and a
-measurement loop catches regressions. See [SELF-IMPROVING.md](SELF-IMPROVING.md).
+<p align="center"><sub><a href="#why-its-different">Why</a> · <a href="#what-it-catches">What it catches</a> · <a href="#how-it-works">How it works</a> · <a href="#install">Install</a> · <a href="#examples">Examples</a> · <a href="#pairs-with-voiceprint">Voiceprint</a> · <a href="#faq">FAQ</a> · <a href="#license">License</a></sub></p>
 
-Based on [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya (MIT),
-and folds in patterns from Wikipedia's "Signs of AI writing" (WikiProject AI Cleanup),
-via the [humanizer](https://github.com/blader/humanizer) skill (MIT).
+AI writing has patterns: predictable phrases, structures, rhythms, and formatting.
+This skill removes them. What makes it different from a plain banlist is that it
+will not trade one slop for another. Strip AI text with a naive remover and you get
+clipped, punchy, LinkedIn-broetry copy, which is its own tell. stop-ai-slop is
+tiered, context-aware, channel-aware, and it measures instead of guessing.
 
-## Why per-channel matters
+Not a detector-bypass tool. The goal is writing that is actually better, not writing
+that sneaks past an AI checker.
 
-Slop wears a different costume on each platform, so one generic pass is not
-enough. A cold email and a LinkedIn post fail in completely different ways.
-`channels.md` handles each one. Here is how and why it helps the writing you
-actually send:
+## Why it's different
 
-- **X / Twitter posts.** Cuts thread-bait ("A thread", "Let's dive in"),
-  guru hook formulas, and "follow for more". Result: one clear idea in the first
-  line, a concrete specific instead of a general claim, and a post that stands on
-  its own.
-- **LinkedIn posts.** Removes the most recognizable slop anywhere: bold-unicode
-  fake headers, broetry line breaks, emoji bullets, "Here's the thing", and the
-  recap-everything close. Result: normal paragraphs, one lived-experience claim,
-  and an ending that lands on the strongest idea rather than a poll.
-- **Cold email.** Kills "I hope this email finds you well", fake personalization,
-  and three paragraphs of throat-clearing before the ask. Result: a first line
-  that could only go to that person, one early ask, and a short message that
-  respects their time.
-- **Warm email.** Strips the over-formality you would never use in person:
-  "circling back", "per my last email", corporate hedging with people you know.
-  Result: writing that matches the warmth already there.
-- **Articles.** Removes "in this article we'll explore", header-per-paragraph
-  skeletons, and restate-everything conclusions. Result: prose that starts in the
-  material and ends on one idea.
-
-## How it works: detect, rewrite, check
-
-1. **Detect.** Run `slop_score.py` for objective counts: banned phrases, em-dash
-   density, bullet-to-prose ratio, sentence-length variance, contrast-pivot count.
-2. **Rewrite.** Fix only what fires. Apply the channel layer from `channels.md`.
-   Preserve meaning, facts, quotes, and voice.
-3. **Check.** Re-run the score. Confirm it improved AND that you did not
-   over-correct into short-punchy slop.
+- **Tiered, not blanket.** always-cut / cut-unless-context / frequency-capped, so it
+  stops over-correcting harmless phrases.
+- **Per-channel.** Separate logic for X, LinkedIn, cold email, warm email, articles.
+  No one else segments by where you post.
+- **It measures.** `slop_score.py` gives countable metrics, not a self-rated rubric.
+- **It stays current.** `slop_miner.py` auto-discovers new tells as models change.
+- **It knows what NOT to flag.** `false-positives.md` protects real human writing so
+  the tool never sands every writer into the same paste.
 
 ## What it catches
 
-- **Phrases** (`phrases.md`), tiered: always-cut vocabulary tells,
-  cut-unless-context, business jargon, fake specificity.
-- **Structures** (`structures.md`): the "Not X. It is Y." pivot, rule-of-three,
-  dramatic fragments, rhetorical scaffolding. Frequency-capped, not banned.
-- **Formatting** (`formatting.md`): bold-lead bullet walls, header-per-paragraph,
-  emoji bullets, em-dash overuse.
-- **Sycophancy and conclusion slop** (`sycophancy.md`): "Great question!",
-  hedging stacks, "In conclusion", audience-hailing.
-- **Channel tells** (`channels.md`): per-platform slop for X, LinkedIn, cold and
-  warm email, and long-form.
-- **The fuller catalog** (`catalog.md`): false agency, narrator-from-a-distance,
-  passive voice, copula avoidance, negative listing, superficial -ing, vague
-  declaratives, aphorism formulas, Wh- openers, and the significance, promotional,
-  and vague-attribution vocabulary.
-- **What NOT to flag** (`false-positives.md`): the guardrail that keeps this from
-  becoming a second slop. Clusters over isolated tells, and the signs of real human
-  writing to protect.
+| Layer | File | Examples |
+| --- | --- | --- |
+| Phrases | `phrases.md` | vocabulary tells, dead phrases, business jargon, fake specificity |
+| Structures | `structures.md` | the "Not X. It is Y." pivot, rule-of-three, dramatic fragments |
+| Formatting | `formatting.md` | bold-lead bullet walls, header-per-paragraph, emoji bullets, em-dashes |
+| Sycophancy | `sycophancy.md` | "Great question!", hedging stacks, "In conclusion", audience-hailing |
+| Channels | `channels.md` | per-platform slop for X, LinkedIn, cold/warm email, long-form |
+| Full catalog | `catalog.md` | false agency, narrator-from-a-distance, passive voice, copula avoidance, Wh- openers |
+| Guardrail | `false-positives.md` | what NOT to flag, and the signs of real human writing to keep |
 
-## What changed from stop-slop
+## How it works
 
-- **Per-channel guidance.** The original treats every piece of writing the same.
-  This adds distinct logic for X, LinkedIn, cold email, warm email, and articles.
-- **Examples that pass their own rules.** Each example shows
-  *before, wrong fix, right fix*, so it teaches the difference between
-  de-slopping and over-correcting into a second slop.
-- **Tiers, not blanket bans.** always-cut / cut-unless-context / frequency-capped.
-- **Positive rules.** What good looks like, not only what to remove.
-- **A real score.** `slop_score.py` gives countable metrics instead of a
-  self-rated rubric.
-- **It stays current.** `slop_miner.py` auto-discovers new tells as models change,
-  plus a community submission flow. A static banlist goes stale; this one does not.
+**Detect, rewrite, check.**
 
-## Scope and honesty
+1. **Detect.** Run `slop_score.py` for objective counts: banned phrases, em-dash
+   density, bullet-to-prose ratio, sentence-length variance, contrast-pivot count.
+2. **Rewrite.** Fix only what fires. Apply the channel layer. Preserve meaning,
+   facts, quotes, and voice.
+3. **Check.** Re-run the score. Confirm it improved AND that you did not over-correct
+   into short-punchy slop.
 
-- This is a writing-improvement tool, not an AI-detector bypass. Detection tools
-  are unreliable and biased against non-native English writers
-  ([Liang et al., Patterns 2023](https://arxiv.org/abs/2304.02819)), so "beat the
-  detector" is not a goal here.
-- A banlist can remove tells but cannot guarantee good writing. Use the score as a
-  guide, then read the result with human judgment.
+## Install
+
+```bash
+# Claude Code
+cp -r stop-ai-slop ~/.claude/skills/stop-ai-slop
+```
+
+- **Claude.ai Projects:** upload `SKILL.md` plus the reference files
+- **Cursor / Codex / anything else:** paste `SKILL.md` into your system prompt
+
+## Examples
+
+Each example shows *before, wrong fix, right fix*, so the model learns the
+difference between de-slopping and over-correcting into a second slop. See
+[`examples.md`](examples.md). One taste:
+
+> **Before:** In today's fast-paced landscape, we need to lean into discomfort and
+> navigate uncertainty with clarity.
+>
+> **Wrong fix:** Move faster. Your competition is. *(a punchy quotable, its own slop)*
+>
+> **Right fix:** Your competitors are moving quickly, so being comfortable with
+> uncertainty is now part of the job.
 
 ## Pairs with voiceprint
 
 stop-ai-slop subtracts the machine.
 [voiceprint](https://github.com/Lekha-Reddy-git-hub/voiceprint) adds the human: it
-learns your voice from your own writing and renders your raw thoughts in it.
-Together they rewrite in your voice and de-slop in one pass. That pairing, sound
-like YOU rather than sound generically human, is the part no humanizer does.
+learns your voice from your own writing and renders your raw thoughts in it. Use
+stop-ai-slop alone to clean text, or together to rewrite in your voice and de-slop
+in one pass. Sound like YOU, not sound generically human, is the part no humanizer
+does.
 
-## Install
+## FAQ
 
-- **Claude Code:** copy this folder into `~/.claude/skills/stop-ai-slop`
-- **Claude.ai Projects:** upload `SKILL.md` plus the reference files
-- **Anything else:** paste `SKILL.md` into your system prompt
+**Is this an AI detector or a way to beat one?** Neither. It is a writing-improvement
+tool. Detectors are unreliable and biased against non-native English writers
+([Liang et al., Patterns 2023](https://arxiv.org/abs/2304.02819)), so "beat the
+detector" is not a goal here.
 
-MIT. See LICENSE.
+**Does it just delete everything that looks like AI?** No. That is the failure it is
+built to avoid. It looks for clusters of tells, not isolated ones, and protects the
+signs of real human writing. See `false-positives.md`.
+
+**Will it strip my own voice?** Not if you pair it with voiceprint, which marks your
+signature moves as protected. On its own it is baseline-neutral.
+
+**Does it work outside Claude?** Yes. The rules target writing, not one tool. Claude,
+Cursor, Codex, and plain system prompts all work.
+
+## Credits
+
+Based on [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya (MIT),
+and folds in patterns from Wikipedia's "Signs of AI writing" (WikiProject AI Cleanup)
+via the [humanizer](https://github.com/blader/humanizer) skill (MIT).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
