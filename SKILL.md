@@ -1,6 +1,6 @@
 ---
 name: stop-ai-slop
-description: Remove AI tells from prose without flattening it into beige, tuned per channel (X, LinkedIn, cold email, warm email, articles). A tiered, context-aware slop remover that detects machine patterns, rewrites them, and preserves meaning and the author's voice. Use when the user wants to clean AI-generated or AI-assisted text, make an X post / LinkedIn post / cold or warm email / article sound human, asks "make this sound less like AI", or wants an objective slop score.
+description: Remove AI tells from writing without flattening it into generic beige, tuned per channel. Use this whenever cleaning or humanizing AI-generated or AI-assisted text, for example "make this sound less like AI", "de-slop this", "humanize this", "remove the AI tells", or when polishing an X post, a LinkedIn post, a cold or warm outreach email, or an article before it goes out. Tiered and context-aware: it detects machine patterns (vocabulary tells, the "Not X. It is Y." pivot, em-dash overuse, bullet walls, sycophancy, passive voice), rewrites them while preserving meaning and the author's own voice, and can score the result with slop_score.py.
 ---
 
 # stop-ai-slop

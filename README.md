@@ -60,6 +60,12 @@ that sneaks past an AI checker.
 
 ## Install
 
+**One line. Works in Claude Code, Cursor, and Codex:**
+
+```bash
+npx skills add Lekha-Reddy-git-hub/stop-ai-slop
+```
+
 **Easiest, no setup. Works in Claude or ChatGPT.**
 Open [`SKILL.md`](SKILL.md), copy all of it, paste it into a new chat, then paste
 your draft and say "apply this skill, keep my meaning and my voice." That is it.
