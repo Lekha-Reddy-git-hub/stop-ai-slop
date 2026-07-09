@@ -14,6 +14,11 @@ instead of guessing.
 Not a detector-bypass tool. The goal is writing that is actually better, not
 writing that sneaks past an AI checker. See "Scope and honesty" below.
 
+**It stays current.** Most slop removers are a static list that ages the moment a
+new model ships. stop-ai-slop is built to keep up: an auto-discovery miner finds
+new tells as they emerge, community submissions feed it patterns, and a
+measurement loop catches regressions. See [SELF-IMPROVING.md](SELF-IMPROVING.md).
+
 Based on [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya (MIT).
 
 ## Why per-channel matters
@@ -75,6 +80,8 @@ actually send:
 - **Positive rules.** What good looks like, not only what to remove.
 - **A real score.** `slop_score.py` gives countable metrics instead of a
   self-rated rubric.
+- **It stays current.** `slop_miner.py` auto-discovers new tells as models change,
+  plus a community submission flow. A static banlist goes stale; this one does not.
 
 ## Scope and honesty
 

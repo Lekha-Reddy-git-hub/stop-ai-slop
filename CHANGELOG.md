@@ -1,22 +1,28 @@
 # Changelog
 
+## v1.2.0 (2026-07-09)
+
+The self-improving release. A static banlist goes stale; this one keeps up.
+
+- slop_miner.py: auto-discovers new tells using the excess-vocabulary method
+  (Kobak et al. 2025). Compares recent AI text to a human baseline and proposes
+  candidates not yet in the banlist. Includes a stopword filter.
+- SELF-IMPROVING.md: the three engines (auto-discovery, community submissions,
+  measurement loop) and the maintainer cadence.
+- CONTRIBUTING.md and a slop-sighting issue template for community submissions.
+
 ## v1.1.0 (2026-07-09)
 
 - Renamed to stop-ai-slop.
 - Added channels.md: per-platform slop for X, LinkedIn, cold email, warm email,
-  and long-form, with what-slop-looks-like and what-to-optimize-for per channel.
-- README rewritten around the channels a writer actually uses, plus an honest
-  "scope and honesty" section (writing improvement, not detector bypass).
+  and long-form.
+- README rewritten around channels, plus a scope-and-honesty section.
 
 ## v1.0.0 (2026-07-09)
 
 First release, derived from stop-slop by Hardik Pandya (MIT).
 
-- Rewrote SKILL.md around a detect, rewrite, check workflow with positive rules
-- phrases.md: tiered (always-cut / cut-unless-context / frequency-capped)
-- structures.md: frequency caps for the correlative pivot, rule-of-three, fragments
-- formatting.md: bullet walls, header-per-paragraph, emoji bullets, em-dash caps
-- sycophancy.md: flattery, hedging stacks, conclusion slop, audience-hailing
-- examples.md: before / wrong-fix / right-fix triples
-- slop_score.py: countable metrics and a 0-100 index, replacing the self-rated rubric
-- TESTS.md: regression cases including an over-correction trap
+- SKILL.md around a detect, rewrite, check workflow with positive rules
+- phrases.md tiered; structures.md, formatting.md, sycophancy.md
+- examples.md as before / wrong-fix / right-fix triples
+- slop_score.py countable metrics; TESTS.md regression cases
